@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.expected_conditions import WebDriverException
 from selenium.webdriver.support.ui import Select
-import numpy as np
 
 import time
 import re
@@ -53,7 +52,8 @@ def enroll_sc(target_ids):
         dd_btn = WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.CLASS_NAME, 'multiselect__select')))
         dd_btn.click()
-        sc_dropdown = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'ul.multiselect__content')))
+        sc_dropdown = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'ul.multiselect__content')))
         # sc_dropdown = driver.find_element_by_css_selector('ul.multiselect__content')
         courses = sc_dropdown.find_elements_by_tag_name('li')
 
